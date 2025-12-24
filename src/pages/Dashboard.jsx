@@ -32,6 +32,28 @@ function Dashboard() {
     }
   };
 
+  const handleStatusChange = async (id, newStatus) => {
+    try {
+      const res = await fetch(`${API_URL}/jobs/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status: newStatus }),
+      });
+
+      const updatedJob = await res.json();
+
+      setJobs((prev) =>
+        prev.map((job) =>
+          job._id === id ? updatedJob : job
+        )
+      );
+    } catch (error) {
+      console.error('Failed to update status', error);
+    }
+  };
+
   if (loading) return <p>Loading jobs...</p>;
 
   return (
@@ -44,7 +66,26 @@ function Dashboard() {
         {jobs.map((job) => (
           <li key={job._id}>
             <strong>{job.company}</strong> — {job.position}
-            <button onClick={() => handleDelete(job._id)}>Delete</button>
+
+            <select
+              value={job.status}
+              onChange={(e) =>
+                handleStatusChange(job._id, e.target.value)
+              }
+              style={{ marginLeft: '1rem' }}
+            >
+              <option value="applied">Applied</option>
+              <option value="interview">Interview</option>
+              <option value="offer">Offer</option>
+              <option value="rejected">Rejected</option>
+            </select>
+
+            <button
+              onClick={() => handleDelete(job._id)}
+              style={{ marginLeft: '1rem' }}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
