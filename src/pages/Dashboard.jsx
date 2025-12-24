@@ -42,9 +42,9 @@ function Dashboard() {
 
       <ul>
         {jobs.map((job) => (
-          <li key={job.id}>
+          <li key={job._id}>
             <strong>{job.company}</strong> — {job.position}
-            <button onClick={() => handleDelete(job.id)}>Delete</button>
+            <button onClick={() => handleDelete(job._id)}>Delete</button>
           </li>
         ))}
       </ul>
