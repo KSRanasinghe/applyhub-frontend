@@ -1,15 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import API_URL from '../services/api';
 
 function Dashboard() {
-  const [jobs, setJobs] = useState(() => {
-    return JSON.parse(localStorage.getItem('jobs')) || [];
-  });
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleDelete = (id) => {
-    const updatedJobs = jobs.filter((job) => job.id !== id);
-    setJobs(updatedJobs);
-    localStorage.setItem('jobs', JSON.stringify(updatedJobs));
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const res = await fetch(`${API_URL}/jobs`);
+        const data = await res.json();
+        setJobs(data);
+      } catch (error) {
+        console.error('Failed to fetch jobs', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`${API_URL}/jobs/${id}`, {
+        method: 'DELETE',
+      });
+      setJobs((prev) => prev.filter((job) => job._id !== id));
+    } catch (error) {
+      console.error('Failed to delete job', error);
+    }
   };
+
+  if (loading) return <p>Loading jobs...</p>;
 
   return (
     <div>

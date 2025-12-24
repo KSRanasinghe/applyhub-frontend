@@ -1,30 +1,31 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_URL from '../services/api';
 
 function AddJob() {
   const [company, setCompany] = useState('');
   const [position, setPosition] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!company || !position) return;
+    try {
+      await fetch(`${API_URL}/jobs`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          company,
+          position,
+        }),
+      });
 
-    const newJob = {
-      id: Date.now(),
-      company,
-      position,
-    };
-
-    
-    const existingJobs = JSON.parse(localStorage.getItem('jobs')) || [];
-    localStorage.setItem(
-      'jobs',
-      JSON.stringify([...existingJobs, newJob])
-    );
-
-    navigate('/dashboard');
+      navigate('/dashboard');
+    } catch (error) {
+      console.error('Failed to add job', error);
+    }
   };
 
   return (
