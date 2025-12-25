@@ -7,10 +7,22 @@ function Dashboard() {
 
   useEffect(() => {
     const fetchJobs = async () => {
+      const token = localStorage.getItem('token');
+
       try {
-        const res = await fetch(`${API_URL}/jobs`);
+        const res = await fetch(`${API_URL}/jobs`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!res.ok) {
+          throw new Error('Failed to fetch jobs');
+        }
+
         const data = await res.json();
         setJobs(data);
+
       } catch (error) {
         console.error('Failed to fetch jobs', error);
       } finally {
@@ -22,9 +34,14 @@ function Dashboard() {
   }, []);
 
   const handleDelete = async (id) => {
+    const token = localStorage.getItem('token');
+
     try {
       await fetch(`${API_URL}/jobs/${id}`, {
         method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
       setJobs((prev) => prev.filter((job) => job._id !== id));
     } catch (error) {
@@ -33,11 +50,14 @@ function Dashboard() {
   };
 
   const handleStatusChange = async (id, newStatus) => {
+    const token = localStorage.getItem('token');
+
     try {
       const res = await fetch(`${API_URL}/jobs/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ status: newStatus }),
       });

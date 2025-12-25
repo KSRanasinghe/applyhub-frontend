@@ -6,6 +6,7 @@ function AddJob() {
   const [company, setCompany] = useState('');
   const [position, setPosition] = useState('');
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,6 +16,7 @@ function AddJob() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           company,
