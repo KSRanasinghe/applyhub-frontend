@@ -10,6 +10,11 @@ function AddJob() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!company.trim() || !position.trim()) {
+      alert('Company and position are required');
+      return;
+    }    
 
     try {
       await apiFetch('/jobs', {

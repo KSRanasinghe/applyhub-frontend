@@ -7,18 +7,29 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!email || !password) {
+      setError('Email and password are required');
+      return;
+    }
+
+
     try {
+      setLoading(true);
+
       const res = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
+
+      setLoading(false);
 
       if (!res.ok) {
         throw new Error('Invalid credentials');
@@ -27,6 +38,7 @@ function Login() {
       const data = await res.json();
       login(data.token, data.user);
       navigate('/dashboard');
+
     } catch (err) {
       setError(err.message);
     }
@@ -45,15 +57,19 @@ function Login() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-
+        <br />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        <button type="submit">Login</button>
+        <br />
+        <button
+          type="submit"
+          disabled={loading}>
+          {loading ? 'Please wait...' : 'Login'}
+        </button>
       </form>
     </div>
   );

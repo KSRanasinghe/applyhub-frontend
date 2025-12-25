@@ -14,6 +14,16 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!name || !email || !password) {
+      setError('All fields are required');
+      return;
+    }
+
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters');
+      return;
+    }
+
     try {
       const res = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
@@ -53,21 +63,21 @@ function Register() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-
+        <br />
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-
+        <br />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
+        <br />
         <button type="submit">Register</button>
       </form>
     </div>

@@ -11,9 +11,21 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Navigate to="/dashboard"/>}/>
-        <Route path='/login' element={<Login />} />
-        <Route path='/login' element={<Register />} />
+        <Route path='/' element={<Navigate to="/dashboard" />} />
+
+        <Route path='/login'
+          element={
+            <MainLayout>
+              <Login />
+            </MainLayout>
+          } />
+
+        <Route path='/register'
+          element={
+            <MainLayout>
+              <Register />
+            </MainLayout>
+          } />
 
         <Route path='/dashboard'
           element={
