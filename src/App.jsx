@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
+import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import AddJob from './pages/AddJob';
 import MainLayout from './layouts/MainLayout';
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Navigate to="/dashboard"/>}/>
         <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Register />} />
 
         <Route path='/dashboard'
           element={
