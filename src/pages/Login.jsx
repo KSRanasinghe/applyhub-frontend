@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import API_URL from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import './Login.css'
+import ApplyHubBtn from '../components/ApplyHubBtn';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -48,32 +50,61 @@ function Login() {
     <>
       <title>Login | ApplyHub | One place for every application</title>
 
-      <div>
-        <h2>Login</h2>
-
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
-          <button
-            type="submit"
-            disabled={loading}>
-            {loading ? 'Please wait...' : 'Login'}
-          </button>
-        </form>
+      <div className='login-layout'>
+        <div className='container-fluid login-section-a global'>
+          <div className='container'>
+            <div className="row">
+              <div className='col-12 content-1'>
+                <Link to='/'>
+                  <img src="images/logo-foot.png" className='img-fluid' alt="ApplyHub" />
+                </Link>
+              </div>
+              <div className='col-12 col-lg-6 content-2'>
+                <div className='card'>
+                  <div className='card-body'>
+                    <h1>Log in</h1>
+                    <p className='auth-link'>
+                      Don't have an account yet? <Link to='/register'>Sign Up</Link>
+                    </p>
+                    <form onSubmit={handleSubmit}>
+                      <div className="mb-3">
+                        <label htmlFor="email" className="form-label">Email</label>
+                        <input
+                          type="email"
+                          className="form-control shadow-none"
+                          id="email"
+                          placeholder="Email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div className="mb-4">
+                        <label htmlFor="password" className="form-label">Password</label>
+                        <input
+                          type="password"
+                          className="form-control shadow-none"
+                          id="password"
+                          placeholder="Password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          required
+                        />
+                      </div>
+                      {error && <h6 className='error-msg'>{error}</h6>}
+                      <ApplyHubBtn disabled={loading}>
+                        {loading ? 'Please wait...' : 'Log in to Account'}
+                      </ApplyHubBtn>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div className='col-12 col-lg-6 content-3'>
+                <img src="images/login.svg" className='img-fluid' alt="ApplyHub" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
 

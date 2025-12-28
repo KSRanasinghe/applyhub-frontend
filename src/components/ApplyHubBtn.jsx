@@ -1,9 +1,9 @@
 import './ApplyHubBtn.css'
 
-function ApplyHubBtn({ children }) {
+function ApplyHubBtn({ children, ...props }) {
   return (
     <div className='mb-3'>
-      <button type='submit' className='ah-btn'>{children}</button>
+      <button type='submit' className='ah-btn' {...props}>{children}</button>
     </div>
   );
 }

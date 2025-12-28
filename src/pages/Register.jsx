@@ -11,6 +11,7 @@ function Register() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -132,7 +133,10 @@ function Register() {
                         />
                       </div>
                       {error && <h6 className='error-msg'>{error}</h6>}
-                      <ApplyHubBtn>Create ApplyHub Account</ApplyHubBtn>
+                      <ApplyHubBtn disabled={loading}>
+                        {loading ? 'Please wait...' : 'Create ApplyHub Account'}
+                      </ApplyHubBtn>
+
                       <span className='auth-link'>
                         <Link to='/login'>Sign In</Link>
                       </span>

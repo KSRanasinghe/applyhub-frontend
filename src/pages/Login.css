@@ -1,0 +1,123 @@
+.login-layout {
+  min-height: 100vh;
+  background: var(--dark-green);
+}
+
+.login-section-a {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.login-section-a::before {
+  content: '';
+  position: absolute;
+  right: -130px;
+  bottom: -130px;
+  width: 850px;
+  height: 850px;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.login-section-a .content-1 {
+  text-align: center;
+  padding-bottom: 60px;
+  z-index: 2;
+}
+
+.login-section-a .content-1 img {
+  width: 250px;
+}
+
+.login-section-a .content-2 {
+  padding-left: 30px;
+  padding-right: 30px;
+  z-index: 2;
+}
+
+.login-section-a .content-2 .card-body {
+  padding: 60px 50px;
+}
+
+.login-section-a h1 {
+  font-family: var(--genos);
+  font-weight: 700;
+  font-size: 55px;
+  color: var(--gray);
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.login-section-a p {
+  font-family: var(--poppins);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--gray);
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.login-section-a .form-label {
+  font-family: var(--poppins);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray);
+}
+
+.login-section-a .form-control {
+  font-family: var(--poppins);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray);
+  padding: 15px;
+}
+
+.login-section-a .auth-link {
+  font-family: var(--poppins);
+  font-size: 18px;
+  font-weight: 400;
+  display: block;
+  text-align: center;
+}
+
+.login-section-a .auth-link a {
+  text-decoration: none;
+  color: var(--green);
+}
+
+.login-section-a .auth-link a:hover {
+  text-decoration: underline;
+}
+
+.login-section-a .content-3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.login-section-a .content-3 img {
+  width: 80%;
+}
+
+
+
+@media (min-width: 1366px) and (max-width: 1399px) {}
+
+/*! Large View*/
+@media (min-width: 1600px) {
+  .login-section-a .content-2 {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .login-section-a .content-2 .card-body {
+    padding: 60px 120px;
+  }
+}
