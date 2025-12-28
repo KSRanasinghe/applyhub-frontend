@@ -9,7 +9,7 @@ function Home() {
     <>
       <title>ApplyHub | One place for every application</title>
 
-      <div className="container-fluid navbar-section global">
+      <div className="container-fluid home-navbar-section global">
         <div className="container">
           <div className="row">
             <div className="col-12 col-lg-3 content-1">
@@ -48,7 +48,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="container-fluid section-a global">
+      <div className="container-fluid home-section-a global">
         <div className="container">
           <div className="row">
             <div className="col-12 col-lg-6 content-1">
@@ -64,7 +64,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="container-fluid section-b global">
+      <div className="container-fluid home-section-b global">
         <div className="container">
           <div className="row">
             <div className="col-12 col-lg-6 content-1">
@@ -86,7 +86,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="container-fluid footer-section global">
+      <div className="container-fluid home-footer-section global">
         <div className="container">
           <div className="row">
             <div className="col-12 col-lg-4 content-1">
@@ -112,7 +112,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="container-fluid copyright-section global">
+      <div className="container-fluid home-copyright-section global">
         <div className="container">
           <div className="row">
             <div className="col-12 content-1">

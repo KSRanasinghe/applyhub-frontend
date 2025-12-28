@@ -41,6 +41,15 @@
   vertical-align: unset !important;
 }
 
+.error-msg{
+  font-family: var(--poppins);
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  color: #ff0000;
+  padding-bottom: 15px;
+}
+
 /*! Mobile */
 @media (max-width: 767px) {}
 

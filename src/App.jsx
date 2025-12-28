@@ -34,9 +34,7 @@ function App() {
         <Route path='/register'
           element={
             <PublicRoute>
-              <MainLayout>
-                <Register />
-              </MainLayout>
+              <Register />
             </PublicRoute>
           } />
 
