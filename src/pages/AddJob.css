@@ -1,0 +1,74 @@
+.add-job {
+  padding-top: 60px;
+}
+
+.add-job .content-1 {
+  padding-bottom: 10px;
+}
+
+.add-job h1 {
+  font-family: var(--poppins);
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--gray);
+  padding-bottom: 15px;
+}
+
+.breadcrumb {
+  font-family: var(--poppins);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.breadcrumb-item a {
+  color: var(--green);
+}
+
+.breadcrumb-item.active {
+  color: var(--gray);
+}
+
+.add-job .card {
+  border: none;
+  filter: drop-shadow(0px 3px 4px rgba(51, 51, 51, 0.2));
+  border-radius: 15px;
+}
+
+.add-job .card-body {
+  padding: 45px;
+}
+
+.add-job .form-label {
+  font-family: var(--poppins);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray);
+}
+
+.add-job .form-control,
+.add-job .form-select {
+  font-family: var(--poppins);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray);
+  padding: 12px;
+}
+
+.add-job .content-3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-job .content-3 img{
+  width: 450px;
+  margin-bottom: 10px;
+}
+
+.add-job .content-3 p{
+  font-family: var(--genos);
+  font-weight: 600;
+  font-size: 30px;
+  color: var(--gray);
+}

@@ -44,8 +44,6 @@ function Register() {
       });
 
       if (!res.ok) {
-        console.log(data);
-
         throw new Error('Registration failed');
       }
 
