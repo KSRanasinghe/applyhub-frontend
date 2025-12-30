@@ -1,16 +1,129 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ApplyHub
 
-Currently, two official plugins are available:
+ApplyHub is a full-stack job application tracking system that helps job seekers manage and monitor their job applications in one place. Users can securely register, log in, add job applications, update their status, and keep track of opportunities through a clean dashboard interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was built to demonstrate practical full-stack development skills using modern web technologies.
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **User authentication** (Register / Login)
+* **JWT-based** protected routes
+* **Add, update, and delete** job applications
+* **Job status tracking** (Applied, Interview, Offer, Rejected)
+* **User-specific data** (each user sees only their own jobs)
+* **Responsive dashboard UI**
+* **Clean separation** of frontend and backend
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+* React (Vite)
+* React Router
+* Bootstrap (grid system)
+* Custom CSS
+
+### Backend
+* Node.js
+* Express.js
+* MongoDB (Mongoose)
+* JWT Authentication
+* bcrypt for password hashing
+
+## 📂 Project Structure
+
+```text
+applyhub/
+├── frontend/        # React application
+│   ├── src/
+│   └── public/
+├── backend/         # Express API
+│   ├── config/
+│   ├── routes/
+│   ├── models/
+│   └── middleware/
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js
+- MongoDB (local or Atlas)
+
+## Frontend setup
+```bash
+git clone https://github.com/KSRanasinghe/applyhub-frontend.git
+```
+```bash
+cd applyhub-frontend
+```
+```bash
+npm install
+```
+```bash
+npm run dev
+```
+
+> **Note:** Frontend runs on: `http://localhost:5173`
+
+## Backend setup
+
+### Backend Repository
+
+> **Note:** The backend API for this project is maintained in a separate repository:  [ApplyHub-Backend](https://github.com/KSRanasinghe/applyhub-backend.git)
+```bash
+git clone https://github.com/KSRanasinghe/applyhub-backend.git
+```
+```bash
+cd applyhub-backend
+```
+```bash
+npm install
+```
+
+### Create a .env file in the backend folder:
+```bash
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+```
+
+### Run the backend server:
+```bash
+npm run dev
+```
+
+> **Note:** Backend runs on:  `http://localhost:5000`
+
+
+## 🧪 How to Test the Application
+
+1. Register a new user account
+2. Log in with your credentials
+3. Add job applications from the dashboard
+4. Update job status or delete jobs
+5. Log out and log in again to verify data persistence
+
+
+## 🔐 Authentication Notes
+
+- JWT is used for authentication
+- Protected routes prevent unauthorized access
+- Tokens are stored on the client side for session handling
+
+## 📌 Project Status
+
+This project is functionally complete and can be extended further with:
+- Deployment
+- Sorting and filtering jobs
+- Search functionality
+- Refresh token implementation
+- UI animations and enhancements
+
+
+## 👤 Author
+
+Keshara S. Ranasinghe
+
+## 🎯 Purpose of This Project
+This project was built as a portfolio application to practice and demonstrate` full-stack web development`, including `authentication`, `protected routes`, and `CRUD operations` using modern technologies.
